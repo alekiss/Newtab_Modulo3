@@ -1,0 +1,8 @@
+.content {
+    background: black;
+}
+
+.header {
+    display: flex;
+    background-color: #E0E0E0;
+}
