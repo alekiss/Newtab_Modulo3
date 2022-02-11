@@ -1,64 +1,85 @@
 <html>
     <head>
         <title>Controle Financeiro</title>
-        <!-- <link rel="stylesheet" href="./style.scss"/> -->
+        <link rel="stylesheet" href="./reset.css">
+        <link rel="stylesheet" href="./style.css">
         <link rel="icon" type="image/png" href="./logo.png">
         <meta charset="UTF-8" />
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-            .content{
-                font-family:'Lato', sans-serif;
-            }
-        
-            .header{
-                display: flex;
-                justify-content: inherit;
-                align-items: center;
-                position: fixed;
-                left: 0;
-                right: 0;
-                top: 0;
-                height: 80px;
-                width: 100%;
-                background-color: #E0E0E0;
-            }
-
-            .header img{
-                margin-left: 200px;
-                height:37px;
-            }
-
-            .header span{
-                margin-left: 20px;
-                font-size: 1.25rem;
-            }
-
-            .header__links{
-                font-size: 1rem;
-                margin-left: 450px;
-                background-color: white;
-                padding: 5px;
-                color: #979797;
-            }
-            
-            .header__links a{
-                margin: 5px;
-                color: #333333;
-            }
-        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="content">
             <div class="header">
-                <img src="./logo.png">
+                <img class="logo" src="./logo.png">
                 <span>Controle Financeiro</span>
                 <div class="header__links">
                     <a>Cadastro de Transações</a>|<a>Limpar Dados</a>
                 </div>
+                <div >
+                    <input type="checkbox" id="check">
+                    <nav class="nav__links">
+                        <label for="check">
+                            <img class="menu" src="menu.png">
+                        </label>
+                        <ul>
+                            <li><a href="">Cadastro de Transações</a></li>
+                            <li><a >Limpar dados</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-
+    
             <div class="container">
-
+                <div class="box">
+                    <h3>Nova Transação</h3>
+                    <p>Tipo de Transação</p>
+                    <select name="select">
+                        <option value="compra" selected>Compra</option>
+                        <option value="venda">Venda</option>
+                    </select>
+                    <p>Nome da Mercadoria</p>
+                    <input type="text" placeholder="Mercadoria">
+                    <p>Valor</p>
+                    <input type="number" placeholder="R$ 0,00">
+                    <br><br>
+                    <button>Adicionar Transação</button>
+                </div>
+    
+                <div class="statement">
+                    <h3>Extrato de Transações</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Mercadoria</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>+</td>
+                                <td>McBook Pro</td>
+                                <td>R$ 12.999,99</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>Teclado Gamer</td>
+                                <td>R$ 99,99</td>
+                            </tr>
+                            <tr>
+                                <td>+</td>
+                                <td>Mouse Pad</td>
+                                <td>R$ 9,99</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Total</th>
+                                <th>R$12.909,99</th>
+                            </tr>
+                        </tfoot>
+                        
+                    </table>
+                </div>
             </div>
         </div>
     </body>
