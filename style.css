@@ -56,7 +56,7 @@
   border: 1px solid #979797;
   box-sizing: border-box;
   border-radius: 4px;
-  padding: 0px 15px 15px 15px;
+  padding: 20px 15px;
   flex-grow: 2;
 }
 
@@ -66,14 +66,18 @@
   height: 32px;
   border-radius: 4px;
   width: 100%;
+  margin-bottom: 5%;
 }
 
 .box p {
   font-size: 0.875em;
+  margin-bottom: 2%;
 }
 
 .box h3 {
-  margin-left: 33%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
 }
 
 .box button {
@@ -86,7 +90,13 @@
 }
 
 .statement h3{
-    margin-left: 33%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.div__links{
+  display: none;
 }
 
 .nav__links{
@@ -98,8 +108,12 @@
     display: none;
   }
 
-  .nav__links{
+  .div__links{
     display: block;
+  }
+
+  .nav__links{
+    display: none;
     position: fixed;
     background-color: #333333;
     top: 0;
@@ -108,13 +122,15 @@
     width: 350px;
   }
 
-  .nav__links .menu{
-    height: 37px;
+  .nav__links .close{
+    height: 16px;
+    padding: 20px;
   }
 
   .nav__links a{
+    display: flex;
+    justify-content: flex-end;
     color: white;
-    display: block;
     padding: 20px;
   }
 
@@ -122,5 +138,44 @@
     background-color: #C4C4C4;
     color: #333333;
   }
-  
+
+  .div__links input[type="checkbox"]:checked ~ nav{
+    display: block;
+  }
+
+  .nav__links input[type="checkbox"]:empty ~ nav{
+    display: none;
+  }
+
+  .header {
+    justify-content: space-between;
+  }
+
+  .header .logo {
+    margin-left: 20px;
+  }
+
+  .header span {
+    margin-left: 0;
+  }
+
+  .div__links label {
+    margin-right: 20px;
+  }
+
+  .container{
+    display: block;
+  }
+
+  .box {
+    max-width:90%;
+    max-height: 90%;
+    margin-left: 5%;
+    margin-bottom: 20px;
+  }
+
+  .statement {
+    max-width: 90%;
+    margin-left: 5%;
+  } 
 }

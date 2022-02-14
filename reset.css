@@ -18,6 +18,10 @@ tbody tr {
     border-width: 1px 0;
 }
 
+table th {
+    padding: 5px 10px;
+}
+
 a{
     text-decoration: none;
     color: #333333;
