@@ -1,0 +1,19 @@
+{
+  "name": "projeto-b",
+  "homepage": "https://github.com/alekiss/Newtab_Modulo3#readme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alekiss/Newtab_Modulo3.git"
+  },
+  "author": "Álekiss Mélo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alekiss/Newtab_Modulo3/issues"
+  }
+}
