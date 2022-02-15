@@ -1,11 +1,11 @@
 {
   "name": "projeto-b",
-  "homepage": "https://github.com/alekiss/Newtab_Modulo3#readme",
+  "homepage": "https://alekiss.github.io/Newtab_Modulo3/",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "gh-pages -b pages -d build"
   },
   "repository": {
     "type": "git",
