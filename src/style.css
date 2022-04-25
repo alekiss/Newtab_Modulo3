@@ -39,6 +39,15 @@
   color: #333333;
 }
 
+.header__links button {
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  color: #333333;
+  border: 0;
+  background-color: #ffff;
+  cursor: pointer;
+}
+
 .container {
   max-width: 996px;
   height: 100%;
@@ -95,6 +104,10 @@
   margin-bottom: 2%;
 }
 
+.statement td{
+  text-align: center;
+}
+
 .div__links{
   display: none;
 }
@@ -130,6 +143,16 @@
   .nav__links a{
     display: flex;
     justify-content: flex-end;
+    color: white;
+    padding: 20px;
+  }
+
+  .nav__links button{
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    border: 0;
+    background-color: #333333;
+    margin-left: 42%;
     color: white;
     padding: 20px;
   }

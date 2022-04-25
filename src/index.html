@@ -6,6 +6,7 @@
         <link rel="icon" type="image/png" href="./logo.png">
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script></script>
     </head>
     <body>
         <div class="content">
@@ -13,7 +14,8 @@
                 <img class="logo" src="./logo.png">
                 <span>Controle Financeiro</span>
                 <div class="header__links">
-                    <a>Cadastro de Transações</a>|<a>Limpar Dados</a>
+                    <a>Cadastro de Transações</a>|
+                    <button id="deleteTable">Limpar Dados</button>
                 </div>
                 <div class="div__links">
                     <input type="checkbox" id="check">
@@ -27,7 +29,7 @@
                         </label>
                         <ul>
                             <li><a href="">Cadastro de Transações</a></li>
-                            <li><a >Limpar dados</a></li>
+                            <button id="deleteTable">Limpar dados</button>
                         </ul>
                     </nav>
                 </div>
@@ -37,16 +39,16 @@
                 <div class="box">
                     <h3>Nova Transação</h3>
                     <p>Tipo de Transação</p>
-                    <select name="select" required>
+                    <select name="select" required id="type">
                         <option value="compra" selected>Compra</option>
                         <option value="venda">Venda</option>
                     </select>
                     <p>Nome da Mercadoria</p>
-                    <input type="text" placeholder="Mercadoria" required>
+                    <input type="text" placeholder="Mercadoria" id="name" required>
                     <p>Valor</p>
-                    <input type="number" placeholder="R$ 0,00" required>
+                    <input type="text" placeholder="R$ 0,00" required id="value" onInput="mascaraMoeda(event);">
                     <br><br>
-                    <button>Adicionar Transação</button>
+                    <button type="submit" id="submit" onclick="onSubmit();">Adicionar Transação</button>
                 </div>
     
                 <div class="statement">
@@ -58,7 +60,7 @@
                                 <th>Valor</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tableBody">
                             <tr>
                                 <td>+</td>
                                 <td>McBook Pro</td>
@@ -75,10 +77,10 @@
                                 <td>R$ 9,99</td>
                             </tr>
                         </tbody>
-                        <tfoot>
+                        <tfoot id="tableFoot">
                             <tr>
                                 <th colspan="2">Total</th>
-                                <th>R$12.909,99</th>
+                                <th id="totalValue">Total</R$12.909,99</th>
                             </tr>
                         </tfoot>
                         
@@ -86,5 +88,8 @@
                 </div>
             </div>
         </div>
+
+        <script src="app.js">
+        </script>
     </body>
 </html>
