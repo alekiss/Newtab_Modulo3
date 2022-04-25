@@ -10,19 +10,27 @@ function drawTable() {
             <tr>
                 <td>${item.type === 'compra' ? '-' : '+'}</td>
                 <td>${item.name}</td>
-                <td>${item.value}</td>
+                <td>${currency.format(item.value || 0)}</td>
             </tr>
             `
         })
+        document.getElementById("totalValue").innerHTML += `
+        <th>${currency.format(total(list))}</th>
+        `
     })
+
 }
 
 function validationFields() {
-    const name = document.querySelector("#name")
-    const value = document.querySelector("#value")
+    const name = document.querySelector("#name").value
+    const value = document.querySelector("#value").value
 
     if(name === '' || value === '') {
         alert("Preencha todos os campos!")
+        return false
+    }
+    else {
+        return true
     }
 
 }
@@ -59,7 +67,7 @@ async function insertTable() {
                             Json: JSON.stringify([{
                                 type: type,
                                 name: name,
-                                value: value
+                                value: parseFloat(value.replace(/\D/g, "")) / 100
                             }])
                         }
                     }
@@ -81,24 +89,25 @@ async function insertTable() {
 }
 
 function onSubmit() {
-    if (transactionsResponse.records.length) {
-        const name = document.querySelector("#name").value
-        const value = document.querySelector("#value").value
-        const type = document.querySelector("#type").value
-        let data = JSON.parse(transactionsResponse?.records[0]?.fields?.Json || '[]')
-        data = [...data, {
-            type: type,
-            name: name,
-            value: value
-        }]
-        patchTransactions(
-            JSON.stringify(data)
-        )
+    if(validationFields()){
+        if (transactionsResponse.records.length) {
+            const name = document.querySelector("#name").value
+            const value = document.querySelector("#value").value
+            const type = document.querySelector("#type").value
+            let data = JSON.parse(transactionsResponse?.records[0]?.fields?.Json || '[]')
+            data = [...data, {
+                type: type,
+                name: name,
+                value: parseFloat(value.replace(/\D/g, "")) / 100
+            }]
+            patchTransactions(
+                JSON.stringify(data)
+            )
+        }
+        else {
+            insertTable()
+        }
     }
-    else {
-        insertTable()
-    }
-
 
 }
 
@@ -107,28 +116,22 @@ function addTransaction(transaction) {
             <tr>
                 <td>${transaction[0] === 'compra' ? '-' : '+'}</td>
                 <td>${transaction[1]}</td>
-                <td>${transaction[2]}</td>
+                <td>${currency.format(transaction[2] || 0)}</td>
             </tr>
             `
 }
 
-async function total(allTrasactions) {
+const currency = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2
+}) 
 
-    let totalTransaction = 0;
+function total(allTrasactions) {
 
-    await allTrasactions.forEach(transactionsValue => {
-
-        if (transactionsValue.type === '-') {
-            totalTransaction -= Number(transactionsValue.value)
-        }
-        else if (transactionsValue.type === '+') {
-            totalTransaction += Number(transactionsValue.value)
-        }
-    })
-
-    if (totalTransaction < 0) {
-
-    }
+return allTrasactions.reduce((previousValue, currentValue) => {
+    return previousValue + (currentValue.value *  (currentValue.type === 'venda' ? 1 : -1))
+    }, 0)
 
 }
 
