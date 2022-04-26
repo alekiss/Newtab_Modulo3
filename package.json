@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "gh-pages -b pages -d build"
+    "jest": "jest --env=jsdom --coverage tests"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/alekiss/Newtab_Modulo3/issues"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }
