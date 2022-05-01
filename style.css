@@ -15,9 +15,22 @@
   background-color: #e0e0e0;
 }
 
+.header__mobile {
+  display: none;
+}
+
+.header__responsive {
+  display: flex;
+  width: 1140px;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1140px;
+  margin: auto;
+}
+
 .header .logo {
-  margin-left: 13vw;
   height: 37px;
+  margin-left: 20px;
 }
 
 .header span {
@@ -27,11 +40,10 @@
 
 .header__links {
   font-size: 1rem;
-  margin-left: auto;
-  margin-right: 13vw;
   background-color: white;
   padding: 5px;
   color: #979797;
+  margin-right: 20px;
 }
 
 .header__links a {
@@ -49,7 +61,7 @@
 }
 
 .container {
-  max-width: 996px;
+  max-width: 1100px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -57,6 +69,7 @@
   margin: 0 auto;
   flex-flow: row wrap;
   margin-top: 30px;
+  padding: 0 20px;
 }
 
 .box {
@@ -73,14 +86,13 @@
 .box input,
 .box button {
   height: 32px;
-  border-radius: 4px;
   width: 100%;
   margin-bottom: 5%;
 }
 
 .box p {
-  font-size: 0.875em;
-  margin-bottom: 2%;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .box h3 {
@@ -92,6 +104,7 @@
 .box button {
   background-color: #333333;
   color: white;
+  border-radius: 4px;
 }
 
 .statement {
@@ -104,21 +117,154 @@
   margin-bottom: 2%;
 }
 
-.statement td{
+.column-one-header, .column-two-body, .column-one-footer {
+  text-align: left;
+}
+
+.column-two-header, .column-three-body, .column-two-footer {
+  text-align: right;
+}
+
+.column-one-body {
   text-align: center;
 }
 
-.div__links{
-  display: none;
-}
-
-.nav__links{
-  display: none;
-}
-
-@media(max-width: 768px) {
-  .header__links {
+@media screen and (max-width: 768px) and (min-width: 532px){
+  .header{
     display: none;
+  }
+
+  .header__mobile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 80px;
+    width: 100%;
+    background-color: #e0e0e0;
+  }
+
+  .div__links{
+    display: block;
+  }
+
+  .nav__links{
+    display: none;
+    position: fixed;
+    background-color: #333333;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 250px;
+  }
+
+  .nav__links .close{
+    height: 16px;
+    padding: 20px;
+  }
+
+  .nav__links a{
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    padding: 20px;
+  }
+
+  .nav__links button{
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    border: 0;
+    background-color: #333333;
+    margin-left: 42%;
+    color: white;
+    padding: 20px;
+  }
+
+  .nav__links a:hover{
+    background-color: #C4C4C4;
+    color: #333333;
+  }
+
+  .div__links input[type="checkbox"]:checked ~ nav{
+    display: block;
+  }
+
+  .nav__links input[type="checkbox"]:empty ~ nav{
+    display: none;
+  }
+
+  .logo {
+    margin-left: 20px;
+  }
+
+  .header span {
+    margin-left: 0;
+  }
+
+  .div__links label {
+    margin-right: 20px;
+  }
+
+  .container{
+    justify-content: center;
+    flex-flow: column;
+    margin-top: 0;
+  }
+
+  .box {
+    width: 100%;
+    max-width: 100%;
+    max-height: 210px;
+    margin-top: 20px;
+  }
+
+  .box select, .box input {
+    margin: 0;
+  }
+
+  .box button {
+    width: 200px;
+    max-width: 200px;
+  }
+
+  .box-button {
+    display: flex;
+    justify-content: end;
+  }
+
+  .box p {
+    margin-bottom: 10px;
+  }
+
+  .box-responsive { 
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 30px;
+    gap: 10px;
+  }
+
+  .statement {
+    margin-top: 40px;
+    padding: 0 20px;
+  }
+}
+
+@media(max-width: 531px) {
+  .header{
+    display: none;
+  }
+
+  .header__mobile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 80px;
+    width: 100%;
+    background-color: #e0e0e0;
   }
 
   .div__links{
@@ -170,11 +316,7 @@
     display: none;
   }
 
-  .header {
-    justify-content: space-between;
-  }
-
-  .header .logo {
+  .logo {
     margin-left: 20px;
   }
 
@@ -185,7 +327,6 @@
   .div__links label {
     margin-right: 20px;
   }
-
   .container{
     display: block;
   }

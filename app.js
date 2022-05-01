@@ -8,14 +8,15 @@ function drawTable() {
         list.map((item) => {
             document.getElementById("tableBody").innerHTML += `
             <tr>
-                <td>${item.type === 'compra' ? '-' : '+'}</td>
-                <td>${item.name}</td>
-                <td>${currency.format(item.value || 0)}</td>
+                <td class="column-one-body">${item.type === 'compra' ? '-' : '+'}</td>
+                <td class="column-two-body">${item.name}</td>
+                <td class="column-three-body">${currency.format(item.value || 0)}</td>
             </tr>
             `
         })
         document.getElementById("totalValue").innerHTML += `
-        <th>${currency.format(total(list))}</th>
+        <th class="column-two-footer">${currency.format(total(list))}</th>
+        <br> ${(total(list)) > 0 ? "[Lucro]" : "[Prejuizo]"}
         `
     })
 
@@ -119,6 +120,7 @@ function addTransaction(transaction) {
                 <td>${currency.format(transaction[2] || 0)}</td>
             </tr>
             `
+            // > 0 ? "Lucro" : "Prejuizo"
 }
 
 const currency = new Intl.NumberFormat('pt-BR', {

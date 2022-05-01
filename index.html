@@ -11,12 +11,22 @@
     <body>
         <div class="content">
             <div class="header">
+                <div class="header__responsive">
+                    <div>
+                        <img class="logo" src="./logo.png">
+                        <span>Controle Financeiro</span>
+                    </div>
+                    <div class="header__links">
+                        <a>Cadastro de Transações</a>|
+                        <button id="deleteTable">Limpar Dados</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header__mobile">
                 <img class="logo" src="./logo.png">
                 <span>Controle Financeiro</span>
-                <div class="header__links">
-                    <a>Cadastro de Transações</a>|
-                    <button id="deleteTable">Limpar Dados</button>
-                </div>
+
                 <div class="div__links">
                     <input type="checkbox" id="check">
                     <label for="check">
@@ -38,17 +48,27 @@
             <div class="container">
                 <div class="box">
                     <h3>Nova Transação</h3>
-                    <p>Tipo de Transação</p>
-                    <select name="select" required id="type">
-                        <option value="compra" selected>Compra</option>
-                        <option value="venda">Venda</option>
-                    </select>
-                    <p>Nome da Mercadoria</p>
-                    <input type="text" placeholder="Mercadoria" id="name" required>
-                    <p>Valor</p>
-                    <input type="text" placeholder="R$ 0,00" required id="value" onInput="mascaraMoeda(event);">
-                    <br><br>
-                    <button type="submit" id="submit" onclick="onSubmit();">Adicionar Transação</button>
+                        <div class="box-responsive">
+                            <div>
+                                <p>Tipo de Transação</p>
+                                <select name="select" required id="type">
+                                    <option value="compra" selected>Compra</option>
+                                    <option value="venda">Venda</option>
+                                </select>
+                            </div>
+                            <div>
+                                <p>Nome da Mercadoria</p>
+                                <input type="text" placeholder="Mercadoria" id="name" required>
+                            </div>
+                            <div>
+                                <p>Valor</p>
+                                <input type="text" placeholder="R$ 0,00" required id="value" onInput="mascaraMoeda(event);">
+                            </div>
+                            <br><br>
+                        </div>
+                        <div class="box-button">
+                            <button id="submit" onclick="onSubmit();">Adicionar Transação</button>
+                        </div>
                 </div>
     
                 <div class="statement">
@@ -56,15 +76,16 @@
                     <table>
                         <thead>
                             <tr>
-                                <th colspan="2">Mercadoria</th>
-                                <th>Valor</th>
+                                <th></th>
+                                <th class="column-one-header">Mercadoria</th>
+                                <th class="column-two-header">Valor</th>
                             </tr>
                         </thead>
                         <tbody id="tableBody">
                             <tr>
-                                <td>+</td>
-                                <td>McBook Pro</td>
-                                <td>R$ 12.999,99</td>
+                                <td class="column-one-body">+</td>
+                                <td class="column-two-body">McBook Pro</td>
+                                <td class="column-three-body">R$ 12.999,99</td>
                             </tr>
                             <tr>
                                 <td>-</td>
@@ -79,8 +100,9 @@
                         </tbody>
                         <tfoot id="tableFoot">
                             <tr>
-                                <th colspan="2">Total</th>
-                                <th id="totalValue">Total</th>
+                                <th></th>
+                                <th class="column-one-footer">Total</th>
+                                <th id="totalValue" class="column-two-footer"></th>
                             </tr>
                         </tfoot>
                         
